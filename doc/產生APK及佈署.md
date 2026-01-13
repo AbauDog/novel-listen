@@ -77,9 +77,14 @@ adb devices
 C:\Users\tatung\AppData\Local\Android\Sdk\platform-tools\adb.exe devices
 
 .\gradlew.bat clean
+.\gradlew.bat --stop
 編譯安裝
 .\gradlew.bat installDebug
-執行餘手機
+執行於手機
 C:\Users\tatung\AppData\Local\Android\Sdk\platform-tools\adb.exe shell am start -n com.example.novel_r/.MainActivity
+發布完成版本
+.\gradlew.bat assembleRelease
+.\gradlew.bat clean assembleRelease
+路徑： app\build\outputs\apk\release\app-release-unsigned.apk
 
 APK 檔案位置：如果您需要傳送安裝檔給其他人，Debug 版的 APK 檔案位於： app\build\outputs\apk\debug\app-debug.apk
