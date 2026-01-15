@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 背景：透明或深色襯托 (這裡留白以便看清愛心形狀，或可加個淡陰影) -->
+    
+    <!-- 愛心本體 -->
+    <!-- 使用兩段貝茲曲線構成愛心 -->
+    <path
+        android:pathData="M54,30 C45,15 20,20 20,45 C20,65 54,90 54,90 C54,90 88,65 88,45 C88,20 63,15 54,30 Z">
+        <aapt:attr name="android:fillColor">
+            <!-- 紅色立體漸層：左上亮 -> 右下暗 -->
+            <gradient
+                android:angle="315"
+                android:centerX="40"
+                android:centerY="40"
+                android:type="linear">
+                <item android:color="#FFFF5252" android:offset="0.0" />
+                <item android:color="#FFD32F2F" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- 愛心亮點 (模擬光源) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.3"
+        android:pathData="M30,35 C30,30 35,25 40,25 C42,25 44,26 44,26 C40,26 35,30 35,35 C35,38 36,40 36,40 C34,38 30,35 30,35 Z"/>
+
+    <!-- 繃帶 (Bandage) -->
+    <!-- 橫跨愛心的灰色帶子 -->
+    <path
+        android:pathData="M18,50 L90,40 L90,55 L18,65 Z"
+        android:fillColor="#E0E0E0"/>
+    <!-- 繃帶陰影 -->
+    <path
+        android:pathData="M18,62 L90,52 L90,55 L18,65 Z"
+        android:fillColor="#9E9E9E"
+        android:fillAlpha="0.5"/>
+    
+    <!-- 3D 音符 (Musical Note) -->
+    <!-- 位置：繃帶上方 -->
+    <group>
+        <path
+            android:pathData="M50,45 L50,65 C48,64 45,65 43,67 C40,70 41,74 44,76 C47,78 51,76 53,73 L53,45 Z">
+            <aapt:attr name="android:fillColor">
+                <!-- 金色/橙色金屬漸層 -->
+                <gradient
+                    android:angle="270"
+                    android:endX="50"
+                    android:endY="76"
+                    android:startX="50"
+                    android:startY="45"
+                    android:type="linear">
+                    <item android:color="#FFFFEE58" android:offset="0.0" />
+                    <item android:color="#FFFBC02D" android:offset="1.0" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        
+        <!-- 音符高光 (光源左上) -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:fillAlpha="0.6"
+            android:pathData="M51,46 L52,46 L52,60 L51,60 Z"/>
+    </group>
+
+</vector>
