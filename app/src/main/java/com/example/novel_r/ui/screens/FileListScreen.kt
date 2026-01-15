@@ -102,19 +102,21 @@ fun FileListScreen(
                     
                     Spacer(modifier = Modifier.height(8.dp))
                     
-                    // 永久刪除
-                    Button(
-                        onClick = {
-                            // 轉移到刪除確認流程
-                            fileToDelete = fileForOptions
-                            fileForOptions = null
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.error
-                        )
-                    ) {
-                        Text("永久刪除檔案")
+                    // 永久刪除 (僅限本地檔案)
+                    if (fileForOptions?.isStream == false) {
+                        Button(
+                            onClick = {
+                                // 轉移到刪除確認流程
+                                fileToDelete = fileForOptions
+                                fileForOptions = null
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.error
+                            )
+                        ) {
+                            Text("永久刪除檔案")
+                        }
                     }
                 }
             },
