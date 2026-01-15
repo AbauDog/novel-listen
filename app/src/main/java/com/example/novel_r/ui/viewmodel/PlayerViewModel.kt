@@ -415,6 +415,7 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                     val realUri = try {
                         if (mediaId.startsWith("http")) {
                             // 優先使用快取的 streamUrl 以加快速度
+<<<<<<< HEAD
                             val cachedUrl = file?.streamUrl
                             val isExpired = cachedUrl != null && isUrlExpired(cachedUrl)
                             
@@ -425,6 +426,12 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                                     android.util.Log.d("PlayerViewModel", "Stream URL expired, refreshing...")
                                 }
                                 // 沒有快取或已過期，嘗試解析
+=======
+                            if (file?.streamUrl != null) {
+                                android.net.Uri.parse(file.streamUrl)
+                            } else {
+                                // 沒有快取，嘗試解析
+>>>>>>> f73e30da5e9ef76e215d31ee2cd8e3590f1fd3d8
                                 val result = youTubeRepository.getStreamInfo(mediaId)
                                 val info = result.getOrNull()
                                 if (info?.streamUrl != null) {
@@ -558,6 +565,7 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
         }
         super.onCleared()
     }
+<<<<<<< HEAD
 
     /**
      * 檢查網址是否過期 (針對 YouTube 串流網址)
@@ -578,4 +586,6 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
             return false
         }
     }
+=======
+>>>>>>> f73e30da5e9ef76e215d31ee2cd8e3590f1fd3d8
 }
